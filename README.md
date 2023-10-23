@@ -1,6 +1,6 @@
 # Godot Jigglebones
 
-This is an addon that adds jigglebones to Godot 3.x. Jigglebones are bones that jiggle when the skeleton moves. They are used for procedural animation, so you can move only the important parts of the skeleton and the little bits will automatically jiggle with it.
+This is an addon that adds jigglebones to Godot 4.x. Jigglebones are bones that jiggle when the skeleton moves. They are used for procedural animation, so you can move only the important parts of the skeleton and the little bits will automatically jiggle with it.
 
 ![Jiggle](images/jiggle.gif)
 
@@ -23,7 +23,7 @@ It can be used for:
 
 [Here's a video of it in action!](https://youtu.be/hJtRCyUwJLY)
 
-# How to use it 
+# How to use it
 
 1. Download the repository as zip and extract it.
 2. Copy the `addons` folder into the root folder of your project, writing into it if it already exists.
@@ -59,22 +59,22 @@ It can be used for:
 
 **Forward Axis**: By default, the -Z axis is used as the forward direction of the bone, which works well with models exported from Blender. However, if you use another 3D modelling tool, the bone might be pointing into the wrong direction. In that case you can try some other axes here to see which is the right one.
 
-**Collision Shape**: Optionally, select the desired `CollisionShape` node, which can be anywhere in your scene tree. The only supported shape is `SphereShape`. See below for more details.
+**Collision Shape**: Optionally, select the desired `CollisionShape3D` node, which can be anywhere in your scene tree. The only supported shape is `SphereShape3D`. See below for more details.
 
 
 # Collision
 
-If you wish to use collision, create a `CollisionShape`, and within it, add a `SphereShape`. Set your desired location and radius.
+If you wish to use collision, create a `CollisionShape3D`, and within it, add a `SphereShape3D`. Set your desired location and radius.
 
-The `CollisionShape` can be placed anywhere in your tree, and can be one that is used for other purposes as well, as long as it is a `SphereShape`. If it is used exclusively for JiggleBones, make sure to disable the `CollisionShape`.
+The `CollisionShape3D` can be placed anywhere in your tree, and can be one that is used for other purposes as well, as long as it is a `SphereShape3D`. If it is used exclusively for JiggleBones, make sure to disable the `CollisionShape3D`.
 
-JiggleBones does not use the physics system. Instead it calculates its own physics. This `CollisionShape` is used only as a visual indicator to communicate where you want the JiggleBone to collide. Disabling it prevents the physics system from processing it. You may ignore the warning that will appear on the `CollisionShape` about needing a `PhysicsBody`.
+JiggleBones does not use the physics system. Instead it calculates its own physics. This `CollisionShape3D` is used only as a visual indicator to communicate where you want the JiggleBone to collide. Disabling it prevents the physics system from processing it. You may ignore the warning that will appear on the `CollisionShape3D` about needing a `PhysicsBody`.
 
-If you have an object with multiple JiggleBones, say a ponytail with 3 bones, you may set them all to the same `CollisionShape`.
+If you have an object with multiple JiggleBones, say a ponytail with 3 bones, you may set them all to the same `CollisionShape3D`.
 
-In the example below, the cape has 13 bones split up into 3 chains of 4 bones down the left, right and middle, plus a root bone. Only the top 3 of each chain are using JiggleBones, so 9 in total. The ponytail has 4 bones, but only the bottom 3 are using JiggleBones. 
+In the example below, the cape has 13 bones split up into 3 chains of 4 bones down the left, right and middle, plus a root bone. Only the top 3 of each chain are using JiggleBones, so 9 in total. The ponytail has 4 bones, but only the bottom 3 are using JiggleBones.
 
-There are two `CollisionShapes`. The upper one keeps the ponytail off the back and cape. The lower one keeps the body from poking through the cape.
+There are two `CollisionShape3Ds`. The upper one keeps the ponytail off the back and cape. The lower one keeps the body from poking through the cape.
 
 This scene runs at 600-750fps @ 1920x1080 on a GTX 1060.
 
